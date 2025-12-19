@@ -40,7 +40,6 @@
   "homepage": "https://vensst.github.io/vue-widget-plus/",
   "dependencies": {
     "@vensst/js-toolkit": "^2.0.0-beta.1",
-    "@vensst/vue-widget-plus": "file:vensst-vue-widget-plus-1.0.0-beta.1.tgz",
     "echarts": "^6.0.0",
     "vue": "^3.5.24"
   },

@@ -42,7 +42,6 @@ const app = createApp(App)
 app.use(VueWidgetPlus, {
   $echarts: echarts
 })
-)
 
 app.mount('#app')
 ```
@@ -51,21 +50,15 @@ app.mount('#app')
 
 ```js
 
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
 import * as echarts from 'echarts'
 
-import {VwpButton, VwpScrollTable, VwpChart} from '@vensst/vue-widget-plus'
+import {VwpScrollTable,} from '@vensst/vue-widget-plus'
 import '@vensst/vue-widget-plus/dist/index.css'
 
 const app = createApp(App)
-
-app.use(VwpButton)
 app.use(VwpScrollTable)
-app.use(VwpChart,{
-  $echarts: echarts
-}))
-
 app.mount('#app')
 
 ```

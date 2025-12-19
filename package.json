@@ -5,7 +5,7 @@
     "@vensst/vue-widget-plus"
   ],
   "private": false,
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "type": "module",
   "module": "dist/index.esm.js",
   "main": "dist/index.umd.js",
@@ -13,14 +13,6 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.umd.js"
-    },
-    "./*": "./*",
-    "./dist/index.css": "./dist/index.css"
-  },
   "sideEffects": [
     "dist/*",
     "dist/index.css"

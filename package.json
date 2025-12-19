@@ -1,0 +1,59 @@
+{
+  "name": "@vensst/vue-widget-plus",
+  "description": "@vensst/vue-widget-plus 一个基于 Vue 3 + TypeScript 的轻量级组件库，提供常用 UI 组件与业务组件封装，支持 按需引入 / 全量注册 / 插件化配置，并内置对 ECharts 的统一注入方案。",
+  "keywords": [
+    "@vensst/vue-widget-plus"
+  ],
+  "private": false,
+  "version": "1.0.0-beta.1",
+  "type": "module",
+  "module": "dist/index.esm.js",
+  "main": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.umd.js"
+    },
+    "./*": "./*",
+    "./dist/index.css": "./dist/index.css"
+  },
+  "sideEffects": [
+    "dist/*",
+    "dist/index.css"
+  ],
+  "scripts": {
+    "dev": "vite --config examples/vite.config.ts",
+    "build": "vite build --config build/vite.config.ts"
+  },
+  "author": "vensst",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vensst/vue-widget-plus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vensst/vue-widget-plus/issues"
+  },
+  "homepage": "https://vensst.github.io/vue-widget-plus/",
+  "dependencies": {
+    "@vensst/js-toolkit": "^2.0.0-beta.1",
+    "@vensst/vue-widget-plus": "file:vensst-vue-widget-plus-1.0.0-beta.1.tgz",
+    "echarts": "^6.0.0",
+    "vue": "^3.5.24"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "rollup": "^4.53.3",
+    "sass": "^1.96.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.2",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-svg-loader": "^5.1.0",
+    "vue-tsc": "^3.1.3"
+  }
+}

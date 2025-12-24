@@ -104,7 +104,7 @@ export interface ScrollTableColumn {
   key: string
   title?: string
   width?: number | string
-  flex?: number
+  flex?: number | string
   align?: 'left' | 'center' | 'right'
   headerAlign?: 'left' | 'center' | 'right'
   showOverflowTooltip?: boolean
@@ -304,9 +304,7 @@ export default {
       this.$nextTick(() => {
         const root = this.$refs.rootRef as HTMLElement | undefined
         if (!root) return
-
-        // use getBoundingClientRect to be safe with transforms, but clientHeight ok too
-        const totalH = root.getBoundingClientRect().height
+        const totalH = root.offsetHeight
         const headerH = this.showHeader ? this.headerHeight : 0
         const bodyH = Math.max(0, totalH - headerH)
 

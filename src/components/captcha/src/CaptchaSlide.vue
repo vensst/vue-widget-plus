@@ -29,6 +29,7 @@ defineOptions({name: 'VwpCaptchaSlide'})
 
 /* ---------------- types ---------------- */
 type SlideEvent = MouseEvent | TouchEvent
+
 export interface CaptchaSlideOptions {
   contentWidth?: number | string
   contentHeight?: number | string
@@ -64,7 +65,6 @@ let maxLeft: number = 0
 const wrapStyle = computed<Record<string, string>>(() => {
   const w = props.options.contentWidth ?? 160
   const h = props.options.contentHeight ?? 32
-  console.log(w, h)
   const width = typeof w === 'string' && hasUnit(w) ? w : `${w}px`
   const height = typeof h === 'string' && hasUnit(h) ? h : `${h}px`
 
@@ -95,7 +95,7 @@ function onStart(e: SlideEvent): void {
 
 function onMove(e: SlideEvent): void {
   const point = 'touches' in e ? e.touches[0] : e
-  if(!point) return;
+  if (!point) return;
   let left = startLeft + (point.clientX - startX)
 
   left = Math.max(0, Math.min(left, maxLeft))
@@ -162,7 +162,8 @@ onBeforeUnmount((): void => {
 /* ---------------- expose ---------------- */
 defineExpose({
   refresh: reset,
-  validate: (): boolean => isOk.value
+  validate: (): boolean => isOk.value,
+  getCode: (): boolean => isOk.value
 })
 </script>
 

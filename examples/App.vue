@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import {ref} from 'vue'
-import ExContextMenu  from "./components/ExContextMenu.vue";
-
+import ExContextMenu from "./components/ExContextMenu.vue";
+import Floor from "./components/Floor.vue";
+// import useDataView from "./hooks/useDataView"
+//
+// useDataView()
 const showDialog = ref(false);
 
 const tableData = ref([
@@ -128,7 +131,7 @@ const ok = function (e) {
 
 const captchaCalcRef = ref()
 const jy3 = function () {
-  console.log('jy',captchaCalcRef.value)
+  console.log('jy', captchaCalcRef.value)
   const res = captchaCalcRef.value.validate(5)
   console.log(res)
 }
@@ -198,7 +201,7 @@ const jy3 = function () {
       <VwpButton type="info" round>info</VwpButton>
     </div>
     <div>
-      <VwpButton circle icon="close"></VwpButton>
+      <VwpButton circle icon="close">1</VwpButton>
       <VwpButton type="primary" circle icon="close"></VwpButton>
       <VwpButton type="success" circle icon="close"></VwpButton>
       <VwpButton type="warning" circle icon="close"></VwpButton>
@@ -206,6 +209,9 @@ const jy3 = function () {
       <VwpButton type="info" circle icon="close"></VwpButton>
     </div>
     <div>
+      <VwpButton type="primary" icon="close">
+        关闭
+      </VwpButton>
       <VwpButton type="primary">
         <VwpIcon name="close"/>
         关闭
@@ -221,7 +227,6 @@ const jy3 = function () {
         <VwpButton size="large">确认</VwpButton>
         <VwpButton loading/>
         <VwpButton icon="arrow-right" type="danger"></VwpButton>
-
       </VwpButtonGroup>
 
       <VwpButtonGroup vertical size="small">
@@ -273,14 +278,13 @@ const jy3 = function () {
       这是body内容
     </VwpDialog>
   </div>
-  <div>
-    <h3>ScrollTable</h3>
+  <Floor>
     <VwpScrollTable :data="tableData"
                     :columns="cols"
                     :showHeader="true"
-                    height="280px"
-                    :headerHeight="30"
-                    :rowsPerPage="5"
+                    height="100%"
+                    :headerHeight="40"
+                    :rowsPerPage="4"
                     :interval="3000"
                     :autoStart="true"
                     emptyText="没有数据"
@@ -299,7 +303,7 @@ const jy3 = function () {
         <VwpButton type="primary">OK</VwpButton>
       </template>
     </VwpScrollTable>
-  </div>
+  </Floor>
   <div>
     <h3>语言播报</h3>
     <VwpInput v-model="message"></VwpInput>
@@ -341,7 +345,7 @@ const jy3 = function () {
       <VwpCaptcha type="ordinary" :options="{mode: 'alpha-upper'}" @change="ok"/>
       <VwpCaptcha type="ordinary" :options="{mode: 'alpha-lower'}" @change="ok"/>
       <VwpCaptcha type="ordinary" :options="{mode: 'number'}" @change="ok"/>
-      <VwpCaptcha type="ordinary"  @change="ok"/>
+      <VwpCaptcha type="ordinary" @change="ok"/>
     </div>
     <div>
       <VwpCaptcha type="slide" @change="ok" :options="{contentWidth:120, contentHeight: 32,}"/>

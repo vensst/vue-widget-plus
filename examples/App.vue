@@ -287,6 +287,7 @@ const jy3 = function () {
                     :rowsPerPage="4"
                     :interval="3000"
                     :autoStart="true"
+                    :isPagerBtn="true"
                     emptyText="没有数据"
                     @row-click="handleRowClick"
                     :rowClassName="handleRowClassName"

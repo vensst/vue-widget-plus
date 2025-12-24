@@ -58,7 +58,7 @@
     </div>
 
     <!-- 翻页按钮 -->
-    <div class="pager-wrap" v-if="total > rowsPerPage">
+    <div class="pager-wrap" v-if="isPagerBtn&&total > rowsPerPage">
       <div v-show="hovered" class="pager up" :class="{ disabled: !canPrevPage }" @click="pageUp">
         <slot name="up">
           <VwpIcon name="arrow-up"></VwpIcon>
@@ -173,7 +173,8 @@ export default {
     interval: {type: Number, default: 3000},
     autoStart: {type: Boolean, default: true},
     rowKeyField: {type: String, default: null},
-    emptyText: {type: String, default: '暂无数据'}
+    emptyText: {type: String, default: '暂无数据'},
+    isPagerBtn: {type: Boolean, default: true}
   },
 
   data() {
@@ -409,12 +410,16 @@ export default {
     },
 
     handleMouseEnter() {
-      this.hovered = true
+      if (this.isPagerBtn) {
+        this.hovered = true
+      }
       this.stopTimer()
     },
 
     handleMouseLeave() {
-      this.hovered = false
+      if (this.isPagerBtn) {
+        this.hovered = false
+      }
       if (!this.hovered) {
         this.startTimer()
       }

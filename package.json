@@ -35,7 +35,6 @@
   "homepage": "https://github.com/vensst/vue-widget-plus/blob/main/docs/v2/README.md",
   "dependencies": {
     "@vensst/js-toolkit": "^2.0.0-beta.1",
-    "@vensst/vue-widget-plus": "file:vensst-vue-widget-plus-1.0.0-beta.2.tgz",
     "echarts": "^6.0.0",
     "vue": "^3.5.24"
   },

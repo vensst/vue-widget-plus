@@ -32,7 +32,7 @@
   "bugs": {
     "url": "https://github.com/vensst/vue-widget-plus/issues"
   },
-  "homepage": "https://vensst.github.io/vue-widget-plus/docs/README.md",
+  "homepage": "https://github.com/vensst/vue-widget-plus/blob/main/docs/v2/README.md",
   "dependencies": {
     "@vensst/js-toolkit": "^2.0.0-beta.1",
     "@vensst/vue-widget-plus": "file:vensst-vue-widget-plus-1.0.0-beta.2.tgz",

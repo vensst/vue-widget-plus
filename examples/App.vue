@@ -5,6 +5,7 @@ import Floor from "./components/Floor.vue";
 // import useDataView from "./hooks/useDataView"
 //
 // useDataView()
+
 const showDialog = ref(false);
 
 const tableData = ref([
@@ -27,6 +28,7 @@ const tableData = ref([
   }, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
 ])
 const cols = ref([
+  {key: 'index', title: '序号', width: '120px'},
   {key: 'id', title: 'ID', width: '120px'},
   {
     key: 'nickname',
@@ -286,7 +288,7 @@ const jy3 = function () {
                     :headerHeight="40"
                     :rowsPerPage="4"
                     :interval="3000"
-                    :autoStart="true"
+                    :autoStart="false"
                     :isPagerBtn="true"
                     emptyText="没有数据"
                     @row-click="handleRowClick"
@@ -294,6 +296,9 @@ const jy3 = function () {
                     headerRowClassName="header--style">
       <template #header-account>
         <vwp-button type="success" size="small">账号</vwp-button>
+      </template>
+      <template #index="{ index }">
+        {{index}}
       </template>
       <template #account="{ row }">
         <VwpButton type="primary">{{ row.account }}</VwpButton>

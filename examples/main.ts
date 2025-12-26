@@ -3,8 +3,10 @@ import App from './App.vue'
 import * as echarts from 'echarts';
 
 import "./style.css"
-import VueWidgetPlus from "@vensst/vue-widget-plus";
-import '@vensst/vue-widget-plus/dist/index.css'
+import VueWidgetPlus from "../src/index";
+import '../dist/index.css'
+// import VueWidgetPlus from "@vensst/vue-widget-plus";
+// import '@vensst/vue-widget-plus/dist/index.css'
 // import {
 //   VwpButton,
 //   VwpButtonGroup,

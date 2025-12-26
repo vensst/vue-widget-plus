@@ -48,7 +48,7 @@
               @mouseleave="onCellLeave"
           >
             <div class="cell" :class="{ ellipsis: col.showOverflowTooltip }">
-              <slot :name="col.key" :row="row">
+              <slot :name="col.key" :row="row" :index="idx">
                 {{ row[col.key] }}
               </slot>
             </div>
@@ -77,15 +77,17 @@
     </div>
 
     <!-- ✅ 自定义 Tooltip -->
-    <div
-        v-show="tooltip.visible"
-        class="custom-tooltip"
-        :style="tooltip.style"
-        @mouseenter="onTooltipEnter"
-        @mouseleave="onTooltipLeave"
-    >
-      {{ tooltip.content }}
-    </div>
+    <Teleport to="body">
+      <div
+          v-show="tooltip.visible"
+          class="custom-tooltip"
+          :style="tooltip.style"
+          @mouseenter="onTooltipEnter"
+          @mouseleave="onTooltipLeave"
+      >
+        {{ tooltip.content }}
+      </div>
+    </Teleport>
   </div>
 </template>
 
@@ -456,7 +458,6 @@ export default {
 
       // ✅ 真实溢出才显示
       if (cell.scrollWidth <= cell.clientWidth) return
-
       const rect = cell.getBoundingClientRect()
 
       this.tooltip.content = String(row[col.key] ?? '')

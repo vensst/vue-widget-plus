@@ -8,7 +8,7 @@
     "@vensst"
   ],
   "private": false,
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "type": "module",
   "module": "dist/index.esm.js",
   "main": "dist/index.umd.js",

@@ -1,8 +1,10 @@
-import type { App } from 'vue'
+import type {App, Plugin} from 'vue'
 import Dialog from './src/Dialog.vue'
 
-Dialog.install = (app: App) => {
+const VwpDialog = Dialog as unknown as Plugin & typeof Dialog
+
+VwpDialog.install = (app: App) => {
   app.component(Dialog.name!, Dialog)
 }
 
-export default Dialog
+export default VwpDialog

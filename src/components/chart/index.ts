@@ -1,4 +1,4 @@
-import type {App} from 'vue'
+import type {App, Plugin} from 'vue'
 import Chart from './src/Chart.vue'
 import {ECHARTS_KEY} from "../../utils/constants";
 
@@ -6,7 +6,9 @@ export interface VueWidgetPlusOptions {
   $echarts?: any
 }
 
-Chart.install = (app: App, options: VueWidgetPlusOptions = {}) => {
+const VwpChart = Chart as unknown as Plugin & typeof Chart
+
+VwpChart.install = (app: App, options: VueWidgetPlusOptions = {}) => {
   app.component(Chart.name!, Chart)
 
   if (options.$echarts) {
@@ -17,4 +19,4 @@ Chart.install = (app: App, options: VueWidgetPlusOptions = {}) => {
   }
 }
 
-export default Chart
+export default VwpChart

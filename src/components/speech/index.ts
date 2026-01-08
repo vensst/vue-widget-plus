@@ -1,8 +1,10 @@
-import type { App } from "vue";
+import type {App, Plugin} from "vue";
 import Speech from "./src/Speech.vue";
 
-Speech.install = (app: App) => {
+const VwpSpeech = Speech as unknown as Plugin & typeof Speech
+
+VwpSpeech.install = (app: App) => {
   app.component(Speech.name!, Speech);
 };
 
-export default Speech;
+export default VwpSpeech;

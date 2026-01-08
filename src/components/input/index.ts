@@ -1,8 +1,10 @@
-import type { App } from "vue";
+import type {App, Plugin} from "vue";
 import Input from "./src/Input.vue";
 
-Input.install = (app: App) => {
+const VwpInput = Input as unknown as Plugin & typeof Input
+
+VwpInput.install = (app: App) => {
   app.component(Input.name!, Input);
 };
 
-export default Input;
+export default VwpInput;

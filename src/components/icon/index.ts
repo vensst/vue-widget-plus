@@ -1,8 +1,10 @@
-import type { App } from "vue";
+import type {App, Plugin} from "vue";
 import Icon from "./src/Icon.vue";
 
-Icon.install = (app: App) => {
+const VwpIcon = Icon as unknown as Plugin & typeof Icon
+
+VwpIcon.install = (app: App) => {
   app.component(Icon.name!, Icon);
 };
 
-export default Icon;
+export default VwpIcon;

@@ -1,8 +1,10 @@
-import type { App } from 'vue'
+import type {App, Plugin} from 'vue'
 import ButtonGroup from './src/ButtonGroup.vue'
 
-ButtonGroup.install = (app: App) => {
+const VwpButtonGroup = ButtonGroup as unknown as Plugin & typeof ButtonGroup
+
+VwpButtonGroup.install = (app: App) => {
   app.component(ButtonGroup.name!, ButtonGroup)
 }
 
-export default ButtonGroup
+export default VwpButtonGroup

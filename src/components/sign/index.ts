@@ -1,8 +1,11 @@
-import type { App } from "vue";
+import type {App, Plugin} from "vue";
 import Sign from "./src/Sign.vue";
 
-Sign.install = (app: App) => {
+const VwpSign = Sign as unknown as Plugin & typeof Sign
+
+
+VwpSign.install = (app: App) => {
   app.component(Sign.name!, Sign);
 };
 
-export default Sign;
+export default VwpSign;

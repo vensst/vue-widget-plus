@@ -1,8 +1,10 @@
-import type {App} from 'vue'
+import type {App, Plugin} from 'vue'
 import ContextMenu from './src/ContextMenu.vue'
 
-ContextMenu.install = (app: App) => {
+const VwpContextMenu = ContextMenu as unknown as Plugin & typeof ContextMenu
+
+VwpContextMenu.install = (app: App) => {
   app.component(ContextMenu.name!, ContextMenu)
 }
 
-export default ContextMenu
+export default VwpContextMenu

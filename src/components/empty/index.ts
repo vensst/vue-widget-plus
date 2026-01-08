@@ -1,8 +1,10 @@
-import type { App } from 'vue'
+import type {App, Plugin} from 'vue'
 import Empty from './src/Empty.vue'
 
-Empty.install = (app: App) => {
+const VwpEmpty = Empty as unknown as Plugin & typeof Empty
+
+VwpEmpty.install = (app: App) => {
   app.component(Empty.name!, Empty)
 }
 
-export default Empty
+export default VwpEmpty

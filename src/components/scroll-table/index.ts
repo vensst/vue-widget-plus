@@ -1,8 +1,10 @@
-import type { App } from "vue";
+import type {App, Plugin} from "vue";
 import ScrollTable from "./src/ScrollTable.vue";
 
-ScrollTable.install = (app: App) => {
+const VwpScrollTable = ScrollTable as unknown as Plugin & typeof ScrollTable
+
+VwpScrollTable.install = (app: App) => {
   app.component(ScrollTable.name!, ScrollTable);
 };
 
-export default ScrollTable;
+export default VwpScrollTable;

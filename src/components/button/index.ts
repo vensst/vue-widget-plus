@@ -1,8 +1,10 @@
-import type { App } from 'vue'
+import type {App, Plugin} from 'vue'
 import Button from './src/Button.vue'
 
-Button.install = (app: App) => {
+const VwpButton = Button as unknown as Plugin & typeof Button
+
+VwpButton.install = (app: App) => {
   app.component(Button.name!, Button)
 }
 
-export default Button
+export default VwpButton

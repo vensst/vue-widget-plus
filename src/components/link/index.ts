@@ -1,8 +1,10 @@
-import type { App } from "vue";
+import type {App, Plugin} from "vue";
 import Link from "./src/Link.vue";
 
-Link.install = (app: App) => {
+const VwpLink = Link as unknown as Plugin & typeof Link
+
+VwpLink.install = (app: App) => {
   app.component(Link.name!, Link);
 };
 
-export default Link;
+export default VwpLink;
